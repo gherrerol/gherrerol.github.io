@@ -10,9 +10,12 @@ El reto no es solo seguir la línea, sino hacerlo de manera estable y rápida an
 
 A continuación, comentaré en secciones cómo se ha llevado a cabo el desarrollo de la práctica, la implementación final y los problemas encontrados, empezando por el preprocesado de la imagen.
 
+
 ## 1. Preprocesamiento
 
+
 Lo primero que necesitamos para que el robot vea la línea roja a seguir es definir un espacio de color para aislarla del resto de cosas que vemos en la imagen. Para ello, usé un rango HSV para definir los valores del color rojo. Utilicé el espacio HSV ya que es más robusto frente a cambios de iluminación y realicé la suma de dos rangos de color rojo ya que HSV no tiene un rango continuo, aparece tanto en la zona baja (H: 0-10) como en la alta (H: 160-180). De esta manera, me aseguro de que la tonalidad de rojo está siendo capturada.
+
 
 | Rango                | Resultado                                              |
 |:---------------------|:-------------------------------------------------------|
@@ -20,11 +23,14 @@ Lo primero que necesitamos para que el robot vea la línea roja a seguir es defi
 | Alto 160-180         | Detección en zonas parcialmente iluminadas             | 
 | Combinación de ambos | Detección completa y robusta durante todo el recorrido | 
 
+
 El resultado es una imagen binaria donde los pixeles blancos corresponden a la línea roja. Sobre esta máscara se calcula el centroide mediante momentos de imagen de OpenCV, obteniendo la coordenada X del punto medio de la línea en cada zona analizada.
 
 En esta sección no hubo muchos problemas, el cálculo de la máscara se hizo realizando una búsqueda del color rojo sobre el espacio HSV y funcionó a la primera. El debug de los centroides también funcionó correctamente.
 
+
 ## 2. Control PD
+
 
 El siguiente paso fue asignarle una velocidad estándar al robot para que empezara a moverse. Al asignarle una velocidad continua y llegar a una curva se chocaba, aquí es donde entra en juego el control del giro del robot, haciendo uso de un control PD. La fórmula de control del regulador PD es:
 
@@ -35,6 +41,7 @@ donde:
 - **Δe** = e(t) − e(t−1) → variación del error entre frames  
 - **Kp = 0.003** → ganancia proporcional  
 - **Kd = 0.08** → ganancia derivativa
+
 
 Como se menciona, el error viene dado por la diferencia entre cx (que representa el centroide de la línea roja), el cual calculamos con momentos de OpenCV, y el centro de la imagen (que es el punto de referencia con el que queremos alinear la línea roja). En cuanto al término proporcional, este produce una corrección proporcional al desplazamiento actual de la línea mientras que el término derivativo actúa sobre la velocidad de cambio del error: si el error crece rápidamente (el coche se está desviando cada vez más), aplica una corrección adicional; si el error decrece (el coche se está centrando), frena la corrección para evitar sobrepasar el centro.
 
@@ -48,9 +55,12 @@ En esta sección el problema principal residía en ajustar Kp y Kd, teniendo que
 - **Kp alto, Kd bajo:** El coche oscila alrededor de la línea incluso en rectas. Las correcciones se amplifican en cada frame formando un movimiento de zigzag.
 - **Kp bajo, Kd más elevado que Kp**: El coche sigue la línea prácticamente sin oscilaciones y recupera el centro suavemente tras las curvas. Este fue el comportamiento objetivo.
 
+
 Este podría haber sido el punto final pero quise reducir el tiempo por lo que el siguiente paso sería cambiar la velocidad constante por una adaptativa.
 
+
 ## 3. Ajustando la velocidad (detección multizona y lookahead)
+
 
 Al tener una velocidad constante, al cambiar de tramo bruscamente, corría el riesgo de que el coche chocase y no pudiera decelerar o frenar para aprovechar el tramo del circuito. Para solucionarlo, decidí implementar una velocidad que se adaptase según se acercase una curva o recta.
 
@@ -75,11 +85,13 @@ Con un único centroide global, el robot no tenía suficiente información para 
   </tr>
 </table>
 
+
 Al calcular la diferencia horizontal entre el centroide de la zona lejana y la cercana obtengo la curvatura anticipada. Cuando ambos centroides coinciden, el tramo es recto y puede acelerar y cuando divergen, significa que hay una curva más adelante y por tanto empieza a frenar.
 
 Por lo tanto, la velocidad adaptativa va a depender de los siguientes factores:
 - **Error actual:** refleja cuánto se ha desviado ya el coche
 - **Curvatura anticipada:** lo que viene según la franja lejana
+
 
 Ambos se combinan tomando el máximo de los dos, con un peso adicional sobre la curvatura para que el sistema frene antes de llegar a la curva, no cuando ya está en ella.
 
@@ -88,11 +100,14 @@ shape_factor = max(error_norm, curvature_norm × 1.3)
 v = max_velocity − (max_velocity − min_velocity) × shape_factor
 ```
 
+
 Esta es sin duda la parte más problemática y en donde más pruebas he hecho en la práctica. Todo ha sido experimental a base de prueba y error: ajustar los rangos de velocidades para el circuito simple, ajustar la Kp y Kd acordes, y especial importancia a las franjas de rangos, que son los que me permiten anticiparme (aunque solo sea un poco ya que no hay suficiente tiempo de anticipación), para poder capturar la variación de la línea a lo largo del circuito y adaptarme a ella. 
 
 Cabe destacar que todos estos valores (Kp, Kd y los valores de velocidad) posiblemente deban ser ajustados según el circuito (los rangos de las franjas parecen no variar) como podemos ver en los resultados a continuación.
 
+
 ## 4. Vuelta final y probando circuitos
+
 
 ### Simple Circuit
 <div style="text-align:center">
@@ -102,7 +117,9 @@ Cabe destacar que todos estos valores (Kp, Kd y los valores de velocidad) posibl
   </iframe>
 </div>
 
+
 La prueba principal sobre el circuito simple. Como se puede observar, el coche sigue la línea en todo momento durante el circuito, manteniéndose cerca incluso en las curvas y prácticamente sin oscilaciones bruscas. El tiempo de vuelta queda reducido finalmente a 60 segundos, una marca seguramente mejorable pero bastante buena en comparación con los 200 segundos iniciales. El rtf se mantiene al 99% casi todo el rato, lo que indica que el tiempo es practicamente 1 a 1 con el del simulador. 
+
 
 ### Montmelo Circuit
 <div style="text-align:center">
@@ -112,7 +129,9 @@ La prueba principal sobre el circuito simple. Como se puede observar, el coche s
   </iframe>
 </div>
 
+
 El primer circuito que probé después del desempeño satisfactorio obtenido en Simple Circuit. En este circuito el coche sigue la línea como se espera, sin oscilaciones y adaptando bien la velocidad. Cabe destacar (como pasa en los circuitos que veremos a continuación) que el rtf baja mucho en algunos tramos del circuito, llegando a bajar hasta el 6% lo que realentiza el procesamiento del sistema y creo que es lo que afecta a que se choque en la 7ª curva. También puede deberse a lo que mencionaba en el apartado anterior sobre ajustar las constantes y sacrificar velocidad por consistencia y estabilidad.
+
 
 ### Monaco Circuit
 <div style="text-align:center">
@@ -122,7 +141,9 @@ El primer circuito que probé después del desempeño satisfactorio obtenido en 
   </iframe>
 </div>
 
+
 En un principio no iba a probar este circuito porque creo recordar que se nos aconsejó que no lo probasemos en el aula, aún así quería ver qué tal se manejaba mi sistema en este caso. En general funciona bien, el circuito es largo con un par de curvas cerradas, el rtf se mantiene en 40-60% llegando a bajar al 10% en algunos casos. Esto de nuevo puede ser la causa de que en la primera curva cerrada, el coche pierda el control (habría que probar a ajustar los parámetros de nuevo).
+
 
 ### Nurburgring y Montreal Classic Circuit
 <div style="text-align:center">
@@ -132,9 +153,12 @@ En un principio no iba a probar este circuito porque creo recordar que se nos ac
   </iframe>
 </div>
 
+
 Estos dos sin duda son los que más quebraderos de cabeza me han dado. Para empezar el Montreal Circuit ni me carga, he tenido que probar directamente el Classic (aunque no debería haber diferencia entre ellos). En ambos circuitos nada más comenzar, el coche derrapa y se estampa contra la pared. He probado a ajustar la Kp, la Kd, los rangos de velocidad, ponerle una velocidad baja constante, nada parece funcionar. No solo eso, parece que no detecta la línea siquiera, lo cual es extraño porque funciona igual que en el resto de circuitos. No he conseguido dar con la solución pero me he fijado en los blogs de los compañeros y veo que han tenido problemas similares con estos circuitos por lo que no termino de comprender si es problema mio o qué puede estar fallando. Además como pequeño apunte curioso, he probado el circuito en dos ordenadores distintos y... ¡la línea es de distinto color! ¿Será cosa de mi configuración en alguna de mis máquinas?
 
+
 ## 5. Conclusiones
+
 
 En resumen, la práctica ha sido muy instructiva, entretenida y en cierta manera compleja. Lo que parecía que tenía una solución fácil al principio implementando sólo Kp y llegando a 200 segundos, ha resultado ser un reto para conseguir bajar el tiempo cerca del minuto sin sacrificar el seguimiento sin oscilaciones de la línea (y eso sólo en el circuito simple). 
 Quedan por probar muchas cosas, como la implementación de la componente integral del control PID, ajustar los parámetros a cada circuito, o incluso plantear una mejor forma de anticiparse a los cambios en el trazado para adaptar la velocidad. Ha sido una práctica completa que demuestra las capacidades y posibilidades del control reactivo.
