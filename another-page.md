@@ -88,6 +88,10 @@ shape_factor = max(error_norm, curvature_norm × 1.3)
 v = max_velocity − (max_velocity − min_velocity) × shape_factor
 ```
 
+Esta es sin duda la parte más problemática y en donde más pruebas he hecho en la práctica. Todo ha sido experimental a base de prueba y error: ajustar los rangos de velocidades para el circuito simple, ajustar la Kp y Kd acordes, y especial importancia a las franjas de rangos, que son los que me permiten anticiparme (aunque solo sea un poco ya que no hay suficiente tiempo de anticipación), para poder capturar la variación de la línea a lo largo del circuito y adaptarme a ella. 
+
+Cabe destacar que todos estos valores (Kp, Kd y los valores de velocidad) posiblemente deban ser ajustados según el circuito (los rangos de las franjas parecen no variar) como podemos ver en los resultados a continuación.
+
 ## 4. Vuelta final y probando circuitos
 
 ### Simple Circuit
@@ -98,6 +102,8 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
   </iframe>
 </div>
 
+La prueba principal sobre el circuito simple. Como se puede observar, el coche sigue la línea en todo momento durante el circuito, manteniéndose cerca incluso en las curvas y prácticamente sin oscilaciones bruscas. El tiempo de vuelta queda reducido finalmente a 60 segundos, una marca seguramente mejorable pero bastante buena en comparación con los 200 segundos iniciales. El rtf se mantiene al 99% casi todo el rato, lo que indica que el tiempo es practicamente 1 a 1 con el del simulador. 
+
 ### Montmelo Circuit
 <div style="text-align:center">
   <iframe width="700" height="394"
@@ -105,6 +111,8 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
+
+El primer circuito que probé después del desempeño satisfactorio obtenido en Simple Circuit. En este circuito el coche sigue la línea como se espera, sin oscilaciones y adaptando bien la velocidad. Cabe destacar (como pasa en los circuitos que veremos a continuación) que el rtf baja mucho en algunos tramos del circuito, llegando a bajar hasta el 6% lo que realentiza el procesamiento del sistema y creo que es lo que afecta a que se choque en la 7ª curva. También puede deberse a lo que mencionaba en el apartado anterior sobre ajustar las constantes y sacrificar velocidad por consistencia y estabilidad.
 
 ### Monaco Circuit
 <div style="text-align:center">
@@ -114,6 +122,8 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
   </iframe>
 </div>
 
+En un principio no iba a probar este circuito porque creo recordar que se nos aconsejó que no lo probasemos en el aula, aún así quería ver qué tal se manejaba mi sistema en este caso. En general funciona bien, el circuito es largo con un par de curvas cerradas, el rtf se mantiene en 40-60% llegando a bajar al 10% en algunos casos. Esto de nuevo puede ser la causa de que en la primera curva cerrada, el coche pierda el control (habría que probar a ajustar los parámetros de nuevo).
+
 ### Nurburgring y Montreal Classic Circuit
 <div style="text-align:center">
   <iframe width="700" height="394"
@@ -121,5 +131,12 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
+
+Estos dos sin duda son los que más quebraderos de cabeza me han dado. Para empezar el Montreal Circuit ni me carga, he tenido que probar directamente el Classic (aunque no debería haber diferencia entre ellos). En ambos circuitos nada más comenzar, el coche derrapa y se estampa contra la pared. He probado a ajustar la Kp, la Kd, los rangos de velocidad, ponerle una velocidad baja constante, nada parece funcionar. No solo eso, parece que no detecta la línea siquiera, lo cual es extraño porque funciona igual que en el resto de circuitos. No he conseguido dar con la solución pero me he fijado en los blogs de los compañeros y veo que han tenido problemas similares con estos circuitos por lo que no termino de comprender si es problema mio o qué puede estar fallando. Además como pequeño apunte curioso, he probado el circuito en dos ordenadores distintos y... ¡la línea es de distinto color! ¿Será cosa de mi configuración en alguna de mis máquinas?
+
+## 5. Conclusiones
+
+En resumen, la práctica ha sido muy instructiva, entretenida y en cierta manera compleja. Lo que parecía que tenía una solución fácil al principio implementando sólo Kp y llegando a 200 segundos, ha resultado ser un reto para conseguir bajar el tiempo cerca del minuto sin sacrificar el seguimiento sin oscilaciones de la línea (y eso sólo en el circuito simple). 
+Quedan por probar muchas cosas, como la implementación de la componente integral del control PID, ajustar los parámetros a cada circuito, o incluso plantear una mejor forma de anticiparse a los cambios en el trazado para adaptar la velocidad. Ha sido una práctica completa que demuestra las capacidades y posibilidades del control reactivo.
 
 [back](./)
