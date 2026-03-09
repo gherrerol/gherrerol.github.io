@@ -90,9 +90,34 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
 
 ## 4. Vuelta final y probando circuitos
 
+### Simple Circuit
 <div style="text-align:center">
   <iframe width="700" height="394"
   src="https://www.youtube.com/embed/w43bQVF1FJw"
+  frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+### Montmelo Circuit
+<div style="text-align:center">
+  <iframe width="700" height="394"
+  src="https://www.youtube.com/embed/4DEuwPCm53Q"
+  frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+### Monaco Circuit
+<div style="text-align:center">
+  <iframe width="700" height="394"
+  src="https://www.youtube.com/embed/w8XTNiviupE"
+  frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+### Nurburgring y Montreal Classic Circuit
+<div style="text-align:center">
+  <iframe width="700" height="394"
+  src="https://www.youtube.com/embed/55VyaNZQHRU"
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
