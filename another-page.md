@@ -90,6 +90,13 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
 
 ## 4. Vuelta final y probando circuitos
 
-
+{% if site.video %}
+<div style="text-align:center">
+  <iframe width="700" height="394"
+    src="https://youtu.be/w43bQVF1FJw"
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+{% endif %}
 
 [back](./)
