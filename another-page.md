@@ -67,7 +67,7 @@ Al tener una velocidad constante, al cambiar de tramo bruscamente, corría el ri
 Con un único centroide global, el robot no tenía suficiente información para anticiparse a lo que viene más adelante, solo reaccionaba cuando la curva ya estaba debajo del coche provocando deceleraciones tardía y correcciones bruscas. Para poder anticiparme, dividí la imagen en tres franjas horizontales para analizar la línea a distintas distancias:
 
 <div style="text-align:center">
-  <img src="assets/images/nombre-archivo.png" width="700" alt="Descripción">
+  <img src="assets/images/franjas.jpeg" width="700" alt="Descripción">
 </div>
 
 <table style="width:100%; border-collapse:collapse; font-family:monospace; font-size:0.9em;">
