@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Práctica 1: Follow Line
+# Práctica 1: Control Reactivo (Follow Line)
 
 En esta primera práctica de robótica, se busca implementar una solución para el problema de Unibotics: Follow Line. La práctica consiste en conseguir que el robot (en este caso un coche de fórmula 1), siga la línea roja pintada sobre la carretera de varios circuitos, recibiendo la imagen únicamente a través de una cámara frontal. 
 
@@ -69,6 +69,17 @@ Con un único centroide global, el robot no tenía suficiente información para 
 └─────────────────────────────┘  100%
 
 Al calcular la diferencia horizontal entre el centroide de la zona lejana y la cercana obtengo la curvatura anticipada. Cuando ambos centroides coinciden, el tramo es recto y puede acelerar y cuando divergen, significa que hay una curva más adelante y por tanto empieza a frenar.
+
+Por lo tanto, la velocidad adaptativa va a depender de los siguientes factores:
+- **Error actual:** refleja cuánto se ha desviado ya el coche
+- **Curvatura anticipada:** lo que viene según la franja lejana
+
+Ambos se combinan tomando el máximo de los dos, con un peso adicional sobre la curvatura para que el sistema frene antes de llegar a la curva, no cuando ya está en ella.
+
+```py
+shape_factor = max(error_norm, curvature_norm × 1.3)
+v = max_velocity − (max_velocity − min_velocity) × shape_factor
+```
 
 ## 4. Vuelta final y probando circuitos
 
