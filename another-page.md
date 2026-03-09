@@ -66,31 +66,38 @@ Al tener una velocidad constante, al cambiar de tramo bruscamente, corría el ri
 
 Con un único centroide global, el robot no tenía suficiente información para anticiparse a lo que viene más adelante, solo reaccionaba cuando la curva ya estaba debajo del coche provocando deceleraciones tardía y correcciones bruscas. Para poder anticiparme, dividí la imagen en tres franjas horizontales para analizar la línea a distintas distancias:
 
-<div style="display:flex; gap:20px; align-items:flex-start;">
-
-  <img src="assets/images/franjas.jpeg" width="340" alt="Descripción">
-
-  <table style="border-collapse:collapse; font-family:monospace; font-size:0.9em; flex:1;">
-    <tr style="background:#1a1a1a;">
-      <td style="border:1px solid #444; padding:8px; color:#888; width:15%;">0%</td>
-      <td style="border:1px solid #444; padding:8px; color:#888;">(cielo / fondo) — sin información útil</td>
-    </tr>
-    <tr style="background:#0d2200;">
-      <td style="border:1px solid #444; padding:8px; color:#ff4444; width:15%;">50 – 68%</td>
-      <td style="border:1px solid #444; padding:8px; color:#ff4444;">● <strong>cx_far</strong> — lookahead: lo que viene</td>
-    </tr>
-    <tr style="background:#0d1a00;">
-      <td style="border:1px solid #444; padding:8px; color:#ffff00; width:15%;">68 – 85%</td>
-      <td style="border:1px solid #444; padding:8px; color:#ffff00;">● <strong>cx_mid</strong> — zona intermedia</td>
-    </tr>
-    <tr style="background:#001a00;">
-      <td style="border:1px solid #444; padding:8px; color:#00ff00; width:15%;">85 – 100%</td>
-      <td style="border:1px solid #444; padding:8px; color:#00ff00;">● <strong>cx_near</strong> — zona cercana: control inmediato</td>
-    </tr>
-  </table>
-
+<div style="text-align:center">
+  <img src="assets/images/nombre-archivo.png" width="700" alt="Descripción">
 </div>
 
+<table style="width:100%; border-collapse:collapse; font-family:monospace; font-size:0.9em;">
+  <tr style="background:
+#1a1a1a;">
+    <td style="border:1px solid #444; padding:8px; color:#888; width:15%;">0%</td>
+    <td style="border:1px solid #444; padding:8px; color:#888;">(cielo / fondo) — sin información útil</td>
+  </tr>
+  <tr style="background:
+#0d2200;">
+    <td style="border:1px solid #444; padding:8px; color:
+#ff4444; width:15%;">50 – 68%</td>
+    <td style="border:1px solid #444; padding:8px; color:
+#ff4444;">● <strong>cx_far</strong> — lookahead: lo que viene</td>
+  </tr>
+  <tr style="background:
+#0d1a00;">
+    <td style="border:1px solid #444; padding:8px; color:
+#ffff00; width:15%;">68 – 85%</td>
+    <td style="border:1px solid #444; padding:8px; color:
+#ffff00;">● <strong>cx_mid</strong> — zona intermedia</td>
+  </tr>
+  <tr style="background:
+#001a00;">
+    <td style="border:1px solid #444; padding:8px; color:
+#00ff00; width:15%;">85 – 100%</td>
+    <td style="border:1px solid #444; padding:8px; color:
+#00ff00;">● <strong>cx_near</strong> — zona cercana: control inmediato</td>
+  </tr>
+</table>
 
 Al calcular la diferencia horizontal entre el centroide de la zona lejana y la cercana obtengo la curvatura anticipada. Cuando ambos centroides coinciden, el tramo es recto y puede acelerar y cuando divergen, significa que hay una curva más adelante y por tanto empieza a frenar.
 
