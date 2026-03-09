@@ -179,6 +179,7 @@ Estos dos sin duda son los que más quebraderos de cabeza me han dado. Para empe
 
 
 En resumen, la práctica ha sido muy instructiva, entretenida y en cierta manera compleja. Lo que parecía que tenía una solución fácil al principio implementando sólo Kp y llegando a 200 segundos, ha resultado ser un reto para conseguir bajar el tiempo cerca del minuto sin sacrificar el seguimiento sin oscilaciones de la línea (y eso sólo en el circuito simple). 
+
 Quedan por probar muchas cosas, como la implementación de la componente integral del control PID, ajustar los parámetros a cada circuito, o incluso plantear una mejor forma de anticiparse a los cambios en el trazado para adaptar la velocidad. Ha sido una práctica completa que demuestra las capacidades y posibilidades del control reactivo.
 
 [back](./)
