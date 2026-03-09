@@ -92,8 +92,8 @@ v = max_velocity − (max_velocity − min_velocity) × shape_factor
 
 <div style="text-align:center">
   <iframe width="700" height="394"
-    src="https://youtu.be/w43bQVF1FJw"
-    frameborder="0" allowfullscreen>
+  src="https://www.youtube.com/embed/w43bQVF1FJw"
+  frameborder="0" allowfullscreen>
   </iframe>
 </div>
 
