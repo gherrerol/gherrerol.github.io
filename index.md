@@ -21,7 +21,7 @@ layout: default
 # Práctica 3: Autolocalización
 
 <div style="text-align:left">
-  <img src="assets/images/escena.png" width="360" alt="Descripción">
+  <img src="assets/images/casa.png" width="360" alt="Descripción">
 </div>
 
 [¡Leer aquí!](./p3.html).
