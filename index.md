@@ -17,3 +17,11 @@ layout: default
 </div>
 
 [¡Leer aquí!](./p2.html).
+
+# Práctica 3: Autolocalización
+
+<div style="text-align:left">
+  <img src="assets/images/escena.png" width="360" alt="Descripción">
+</div>
+
+[¡Leer aquí!](./p3.html).
