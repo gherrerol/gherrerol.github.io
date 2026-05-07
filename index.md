@@ -25,3 +25,11 @@ layout: default
 </div>
 
 [¡Leer aquí!](./p3.html).
+
+# Práctica 4: Control Visual con DL
+
+<div style="text-align:left">
+  <img src="assets/images/coche.png" width="360" alt="Descripción">
+</div>
+
+[¡Leer aquí!](./p4.html).
