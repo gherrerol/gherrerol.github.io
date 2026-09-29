@@ -66,35 +66,35 @@ Since the car was traveling at a constant speed, abrupt changes in track section
 With a single global center of mass, the robot didn’t have enough information to anticipate what was ahead; it only reacted once the turn was already directly beneath the car, causing delayed decelerations and abrupt corrections. To be able to anticipate, I divided the image into three horizontal bands to analyze the track at different distances:
 
 <div style="text-align:center">
-  <img src="assets/images/franjas.jpeg" width="700" alt="Descripción">
+  <img src="images/robotics/franjas.jpeg" width="700" alt="Descripción">
 </div>
 
 <table style="width:100%; border-collapse:collapse; font-family:monospace; font-size:0.9em;">
   <tr style="background:
 #1a1a1a;">
     <td style="border:1px solid #444; padding:8px; color:#888; width:15%;">0%</td>
-    <td style="border:1px solid #444; padding:8px; color:#888;">(cielo / fondo) — sin información útil</td>
+    <td style="border:1px solid #444; padding:8px; color:#888;">(sky / background) — useless info</td>
   </tr>
   <tr style="background:
 #0d2200;">
     <td style="border:1px solid #444; padding:8px; color:
 #ff4444; width:15%;">50 – 68%</td>
     <td style="border:1px solid #444; padding:8px; color:
-#ff4444;">● <strong>cx_far</strong> — lookahead: lo que viene</td>
+#ff4444;">● <strong>cx_far</strong> — lookahead</td>
   </tr>
   <tr style="background:
 #0d1a00;">
     <td style="border:1px solid #444; padding:8px; color:
 #ffff00; width:15%;">68 – 85%</td>
     <td style="border:1px solid #444; padding:8px; color:
-#ffff00;">● <strong>cx_mid</strong> — zona intermedia</td>
+#ffff00;">● <strong>cx_mid</strong> — mid zone</td>
   </tr>
   <tr style="background:
 #001a00;">
     <td style="border:1px solid #444; padding:8px; color:
 #00ff00; width:15%;">85 – 100%</td>
     <td style="border:1px solid #444; padding:8px; color:
-#00ff00;">● <strong>cx_near</strong> — zona cercana: control inmediato</td>
+#00ff00;">● <strong>cx_near</strong> — near zone: immediate control</td>
   </tr>
 </table>
 
@@ -170,8 +170,8 @@ These two have definitely given me the most headaches. For starters, the Montrea
 
 
 <div style="display:flex; gap:10px; justify-content:center">
-  <img src="assets/images/torre.jpeg" width="340" alt="Imagen 1">
-  <img src="assets/images/portatil.jpeg" width="340" alt="Imagen 2">
+  <img src="images/robotics/torre.jpeg" width="340" alt="Imagen 1">
+  <img src="images/robotics/portatil.jpeg" width="340" alt="Imagen 2">
 </div>
 
 
