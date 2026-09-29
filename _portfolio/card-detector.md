@@ -67,7 +67,7 @@ The fastest keypoint-based option. It uses **ORB** features combined with a bina
 
 <div style="text-align:center">
   <iframe width="700" height="394"
-  src="https://www.youtube.com/embed/YOUTUBE_ID_ORB"
+  src="https://www.youtube.com/embed/zFzPGR_zZeE"
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
@@ -84,7 +84,7 @@ All the previous methods rely on a template library and a reasonably controlled 
 
 <div style="text-align:center">
   <iframe width="700" height="394"
-  src="https://www.youtube.com/embed/YOUTUBE_ID_ORB"
+  src="https://www.youtube.com/embed/shorts/Ca6I7l4sxJE?feature=share"
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
@@ -102,7 +102,7 @@ These are some of the predictions made on real photos of the deck. It gets many 
 
 <div style="text-align:center">
   <iframe width="700" height="394"
-  src="https://www.youtube.com/embed/YOUTUBE_ID_SIFT"
+  src="https://www.youtube.com/embed/Jf3hu9-xm20"
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
