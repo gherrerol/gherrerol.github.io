@@ -23,7 +23,7 @@ repository               : "gherrerol/gherrerol.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "perfil.png"
   name             : "Gustavo Herrero Lapuente"
   pronouns         : "he/him" # example: "she/her"  
   bio              : "Computer Vision Engineer with a strong background in 3D simulation and a passion for game development."
