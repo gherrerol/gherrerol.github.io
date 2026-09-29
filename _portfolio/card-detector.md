@@ -84,7 +84,7 @@ All the previous methods rely on a template library and a reasonably controlled 
 
 <div style="text-align:center">
   <iframe width="700" height="394"
-  src="https://www.youtube.com/embed/shorts/Ca6I7l4sxJE?feature=share"
+  src="https://www.youtube.com/embed/Ca6I7l4sxJE?"
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
