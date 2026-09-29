@@ -8,7 +8,7 @@ This project was developed together with **Jorge Lozoya Astudillo** for the Mast
 
 The initial idea was to build a blackjack assistant. As the project moved forward, it turned into something more interesting: a **comparison of several classical computer vision methods** (Template Matching, binarized template subtraction, SIFT and ORB) for detecting and classifying cards, looking at how accurate and how fast each of them is.
 
-![Idea](/images/card_detector/idea.png)
+![Idea](/images/card_detection/idea.png)
 
 Below, I will go through the building blocks shared by all the methods, then each approach in its own section, and finally the results and the conclusions.
 
@@ -23,8 +23,8 @@ Every method starts from the same preprocessing, so that the comparison between 
 - **Normalization:** all the templates have the same resolution, so they can be compared directly.
 - **Ground truth:** the templates are named `number_suit.jpeg` (for example `7_trebol.jpeg`), so the file name is also the label.
 
-![Warp and ROI](/images/card_detector/warp_roi.png)
-![Warp and ROI 2](/images/card_detector/warp_roi_2.png)
+![Warp and ROI](/images/card_detection/warp_roi.png)
+![Warp and ROI 2](/images/card_detection/warp_roi_2.png)
 
 
 ## 2. Template Matching
@@ -35,7 +35,7 @@ The most classical approach: compare the ROI against a library of templates and 
 2. Extract the ROI (crop and split into rank and suit).
 3. Load the templates and compute the correlation with `cv2.matchTemplate`. The template with the highest correlation gives the prediction.
 
-![Template Matching pipeline](/images/card_detector/template_matching.png)
+![Template Matching pipeline](/images/card_detection/template_matching.png)
 
 
 ## 3. Binarized Template Subtraction
@@ -46,7 +46,7 @@ A variation of the previous idea, but instead of correlating grayscale images, t
 2. Extract the ROI (crop and split).
 3. Compare it with every template using the **SAD** (Sum of Absolute Differences). The template with the smallest difference is the prediction.
 
-![Binarized subtraction pipeline](/images/card_detector/subtraction.png)
+![Binarized subtraction pipeline](/images/card_detection/subtraction.png)
 
 
 ## 4. SIFT + RANSAC
@@ -58,7 +58,7 @@ Here the classification does not depend on comparing pixels directly, but on mat
 3. Match the features and use **RANSAC** to keep only the geometrically consistent matches (the inliers).
 4. The template with the most inliers is the prediction.
 
-![SIFT + RANSAC pipeline](/images/card_detector/sift.png)
+![SIFT + RANSAC pipeline](/images/card_detection/sift.png)
 
 
 ## 5. ORB + Binarization
@@ -96,7 +96,7 @@ All the previous methods rely on a template library and a reasonably controlled 
 
 These are some of the predictions made on real photos of the deck. It gets many of them right (8 of diamonds, ace of diamonds, 9 of clubs, 10 of diamonds and 4 of clubs), but it also fails in some cases: the ace of clubs was read as a 3 of diamonds, the king of clubs as a queen of clubs, and the 2 of clubs as a 2 of diamonds. Note that most of the failures involve the suit, which is a very small part of the image.
 
-![Results](/images/card_detector/results.png)
+![Results](/images/card_detection/results.png)
 
 ### Best result (SIFT)
 
@@ -117,7 +117,7 @@ The three methods were run on the same video and I measured the total processing
 | SIFT + RANSAC                  | 372.14 s        | 59.1%    |
 | Template Matching              | 21.04 s         | 45.5%    |
 
-![Comparison charts](/images/card_detector/metrics.png)
+![Comparison charts](/images/card_detection/metrics.png)
 
 SIFT is clearly the most accurate, but it is also about 17 times slower than the other two, which makes it unsuitable for real-time use. The two template-based methods run in a similar time, and Template Matching gets better accuracy than the binarized subtraction. ORB is not included in these charts, since it was evaluated mainly for its real-time behavior.
 
