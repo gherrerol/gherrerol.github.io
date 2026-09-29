@@ -8,7 +8,7 @@ Assignments from Computer Vision Master at URJC, a university robotics subject b
 
 <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5em; margin-bottom:2em;">
   <a href="/portfolio/robotics/pid/" style="flex:0 0 240px;">
-    <img src="/images/robotics/car.png" alt="Reactive Control" style="width:100%; border-radius:6px;">
+    <img src="/images/robotics/coche.png" alt="Reactive Control" style="width:100%; border-radius:6px;">
   </a>
   <div style="flex:1 1 260px;">
     <h3 style="margin-top:0;"><a href="/portfolio/robotics/pid/">Assignment 1: Reactive Control</a></h3>
@@ -18,7 +18,7 @@ Assignments from Computer Vision Master at URJC, a university robotics subject b
 
 <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5em; margin-bottom:2em;">
   <a href="/portfolio/robotics/3d/" style="flex:0 0 240px;">
-    <img src="/images/robotics/scene.png" alt="3D Reconstruction" style="width:100%; border-radius:6px;">
+    <img src="/images/robotics/escena.png" alt="3D Reconstruction" style="width:100%; border-radius:6px;">
   </a>
   <div style="flex:1 1 260px;">
     <h3 style="margin-top:0;"><a href="/portfolio/robotics/3d/">Assignment 2: 3D Reconstruction</a></h3>
@@ -28,7 +28,7 @@ Assignments from Computer Vision Master at URJC, a university robotics subject b
 
 <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5em; margin-bottom:2em;">
   <a href="/portfolio/robotics/autolocalization/" style="flex:0 0 240px;">
-    <img src="/images/robotics/autolocalization.png" alt="Autolocalization" style="width:100%; border-radius:6px;">
+    <img src="/images/robotics.png" alt="Autolocalization" style="width:100%; border-radius:6px;">
   </a>
   <div style="flex:1 1 260px;">
     <h3 style="margin-top:0;"><a href="/portfolio/robotics/autolocalization/">Assignment 3: Autolocalization</a></h3>
@@ -38,7 +38,7 @@ Assignments from Computer Vision Master at URJC, a university robotics subject b
 
 <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5em; margin-bottom:2em;">
   <a href="/portfolio/robotics/endtoend/" style="flex:0 0 240px;">
-    <img src="/images/robotics/visual.png" alt="End-to-End Visual Control" style="width:100%; border-radius:6px;">
+    <img src="/images/robotics/coche.png" alt="End-to-End Visual Control" style="width:100%; border-radius:6px;">
   </a>
   <div style="flex:1 1 260px;">
     <h3 style="margin-top:0;"><a href="/portfolio/robotics/endtoend/">Assignment 4: End-to-End Visual Control</a></h3>
