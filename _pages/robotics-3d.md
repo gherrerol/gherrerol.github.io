@@ -9,7 +9,7 @@ In this second robotics lab, the goal is to implement a solution to the Unibotic
 
 The challenge lies in obtaining a point cloud that represents the edges of the objects in the scene. To do this, we must apply the concepts learned in class regarding backprojection and point matching, while also taking epipolar geometry into account.
 
-[![Scene](/images/robotics/escena.png)]
+![Scene](/images/robotics/escena.png)
 
 Below, I will discuss in sections how the project was developed, the final implementation, and the problems encountered, starting with image preprocessing.
 
@@ -30,7 +30,7 @@ To clean the image of sensor noise and light variations without destroying impor
 
 On these filtered images, I applied the Canny algorithm to obtain a binary edge mask. This way, I ensure that the search for correspondences is limited solely to the silhouettes that define the scene’s structure, drastically reducing the computational cost without losing the interpretation of the figures.
 
-[![Canny edges](/images/robotics/canny.png)]
+![Canny edges](/images/robotics/canny.png)
 
 ## 2. Matching and Epipolar Geometry
 
