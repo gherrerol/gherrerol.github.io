@@ -66,7 +66,7 @@ Since the car was traveling at a constant speed, abrupt changes in track section
 With a single global center of mass, the robot didn’t have enough information to anticipate what was ahead; it only reacted once the turn was already directly beneath the car, causing delayed decelerations and abrupt corrections. To be able to anticipate, I divided the image into three horizontal bands to analyze the track at different distances:
 
 
-![Franjas](/images/robotics/franjas.png)
+![Franjas](/images/robotics/franjas.jpeg)
 
 
 <table style="width:100%; border-collapse:collapse; font-family:monospace; font-size:0.9em;">
