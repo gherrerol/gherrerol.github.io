@@ -1,6 +1,6 @@
 ---
 title: "Robotics Projects"
-excerpt: "PID line following, stereo 3D reconstruction, marker-based localization, and end-to-end visual control. <br/><img src='/images/olives.png'>"
+excerpt: "PID line following, stereo 3D reconstruction, marker-based localization, and end-to-end visual control. <br/><img src='/images/robotics.png'>"
 collection: portfolio
 ---
 
