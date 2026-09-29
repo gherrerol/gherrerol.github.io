@@ -1,5 +1,5 @@
 ---
-title: "Localization of the Epileptic Focus Using Convolutional Neural Networks Based on EEG Signals"
+title: "Localization of the Epileptic Focus Using CNNs Based on EEG Signals"
 excerpt: "Study of the DeepMEG-CNN architecture, adapted to low-density clinical EEG with 72 channels. <br/><img src='/images/epilepsy.png'>"
 collection: portfolio
 ---
