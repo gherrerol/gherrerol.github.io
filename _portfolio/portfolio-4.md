@@ -4,4 +4,5 @@ excerpt: "PID line following, stereo 3D reconstruction, marker-based localizatio
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+Assignments from Computer Vision Master at URJC, a university robotics subject built around ROS2 and the Unibotics simulation platform (Gazebo). Each one tackles a different piece of the classic robotics stack:
+
