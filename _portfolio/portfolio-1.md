@@ -1,6 +1,6 @@
 ---
 title: "OliveVision"
-excerpt: "System for the automatic quality assessment of olive shipments at a processing plant, classifying them without human intervention <br/><img src='/images/olives.png'>"
+excerpt: "System for the automatic quality assessment of olive shipments at a processing plant <br/><img src='/images/olives.png'>"
 collection: portfolio
 ---
 
