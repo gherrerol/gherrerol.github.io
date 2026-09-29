@@ -11,54 +11,32 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* M.S. in Computer Vision, Rey Juan Carlos University, 2026
+* B.S. in Game Development and Game Design, Rey Juan Carlos University, 2026
+* Erasmus Exchange, Högskolan i Skövde, 2025
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* October 2025 - August 2026: Computer Vision and ML Intern
+  * CAPO Research Group
+  * Designed pipelines for the generation and validation of synthetic data for the development of digital twins.
+  * Segmented a dataset of 10,000+ RGB microscopy images of cyanobacteria using SAM 3.
+  * Built a custom student model (LightUNet) via knowledge distillation that replicates SAM 3's segmentation task, cutting model weights from ~3.2 GB to ~3 MB (~1,000x smaller).
+  * Target task: identifying the cyanobacteria type from a microscopy image.
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* May 2025 - July 2025: Software Developer Intern
+  * MsLab
+  * Contributed to VReal, a human digitalization and virtual clothing project: helped develop a web app that lets users create their own digital garments and visualize them on a virtual model.
+  * Designed prototypes and solved technical problems collaboratively within the research team.
+    
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming: Python, C/C++, C#, Java, JavaScript, SQL
+* Computer Vision & ML: SLAM, neural networks, image processing, synthetic data generation, digital twins, OpenCV, PyTorch / TensorFlow
+* Game Dev & 3D: Unity (C#), 3DStudio Max, 2D/3D modelling, interface development, prototyping
+* Databases & Web: MongoDB, NodeJS, HTML/CSS
 
-Publications
+Languages
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Spanish (Native)
+* English (C1, Cambridge level)
