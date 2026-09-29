@@ -5,8 +5,6 @@ layout: single
 author_profile: true
 ---
 
-# Assigment 1: Reactive Control (Follow Line)
-
 In this first robotics exercise, the goal is to implement a solution to the Unibotics problem: Follow Line. The exercise consists of getting the robot (in this case, a Formula 1 car) to follow the red line painted on the road across various circuits, using only the image from a front-facing camera.
 
 The challenge is not only to follow the line but to do so stably and quickly under varying conditions (straights, curves of different radii, and transitions between them). To achieve this, we adopted a closed-loop reactive control approach, where the control signal (the vehicle’s steering angle) is calculated in each frame based on the visual error between the line’s position and the center of the image.
