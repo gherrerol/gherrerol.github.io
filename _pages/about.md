@@ -11,7 +11,7 @@ My name is Gustavo and I'm a Computer Vision Engineer and Machine Learning engin
 
 I've studied a BSc in Game Development and Game Design and pivoted into Computer Vision due to my interest in Augmented Reality and 3D virtual enviroments. This lead me to pursue the MSc in Computer Vision in order to extend my knowledge on the matter and to learn new applications of this vast field.
 
-Throught my career I've adquired expertise on model arquitecture, evaluation and validation as well as data adquisition from imagery, SLAM algorithms and 3D reconstruction.
+Throught my career I've adquired expertise on model arquitecture, evaluation and validation as well as data adquisition from imagery, image processing, SLAM algorithms and 3D reconstruction.
 
 I'm interested in the fields of 3D Reconstruction, Robotics and Medical Image; also I’m currently finishing my final masters project in Universidad Rey Juan Carlos.
 
