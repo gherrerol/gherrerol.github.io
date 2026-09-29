@@ -10,7 +10,7 @@ In this second robotics lab, the goal is to implement a solution to the Unibotic
 The challenge lies in obtaining a point cloud that represents the edges of the objects in the scene. To do this, we must apply the concepts learned in class regarding backprojection and point matching, while also taking epipolar geometry into account.
 
 <div style="text-align:center">
-  <img src="assets/images/escena.png" width="700" alt="Description">
+  <img src="images/robotics/escena.png" width="700" alt="Description">
 </div>
 
 Below, I will discuss in sections how the project was developed, the final implementation, and the problems encountered, starting with image preprocessing.
@@ -33,7 +33,7 @@ To clean the image of sensor noise and light variations without destroying impor
 On these filtered images, I applied the Canny algorithm to obtain a binary edge mask. This way, I ensure that the search for correspondences is limited solely to the silhouettes that define the scene’s structure, drastically reducing the computational cost without losing the interpretation of the figures.
 
 <div style="text-align:center">
-  <img src="assets/images/canny.png" width="700" alt="Description">
+  <img src="images/robotics/canny.png" width="700" alt="Description">
 </div>
 
 ## 2. Matching and Epipolar Geometry
@@ -62,7 +62,7 @@ This was undoubtedly the most visually challenging part and where calibration er
 * **Points clustered at the origin:** In the early stages when I was trying to implement triangulation, the points clustered at the origin of the robot's camera. This was because I initially extracted the homogeneous coordinates directly without dividing the resulting vector by the fourth coordinate (the scale), which caused the vector values to be close to zero and to be plotted at the origin. Furthermore, before implementing the disparity limit, my system could mistakenly match a pixel on the far right of the left image with one on the far left of the right image. This generated a huge disparity, and when divided by such a large number, the depth tended toward 0, as the system interpreted these false positives as being right up against the camera lens. This problem was completely eliminated by introducing the depth clipping constraint I mentioned in the previous section (Z_MIN = 2000), which discards any point mathematically less than 2 meters away and limits the maximum horizontal disparity search range.
 
 <div style="text-align:center">
-  <img src="assets/images/apelotonado.png" width="700" alt="Description">
+  <img src="images/robotics/apelotonado.png" width="700" alt="Description">
 </div>
 
 * **“Radioactive” colors:** In my initial tests, Mario appeared bright cyan instead of red. It turned out that the simulation images are captured in BGR format, and when I extracted the color and converted it to RGB without reversing the order, the red and blue channels were swapped.
@@ -70,7 +70,7 @@ This was undoubtedly the most visually challenging part and where calibration er
 * **The upside-down scene:** When viewing the point cloud in the web viewer, the scene appeared flipped and mirrored. This is because the axes were oriented differently than I had thought; a quick fix was to add a minus sign to the Y and X axes, and the scene was immediately oriented correctly.
 
 <div style="text-align:center">
-  <img src="assets/images/girado.png" width="700" alt="Description">
+  <img src="images/robotics/girado.png" width="700" alt="Description">
 </div>
 
 * **The buried scene:** Now, when viewing the point cloud in the web viewer, the scene appeared cut in half, buried beneath the floor grid. This happens because the coordinate origin (0,0,0) is the center of the robot’s camera, which is at a certain height above the ground. The solution was to apply a vertical offset (a translation along the Y-axis) to raise the entire point cloud so that it would visually rest on top of the grid.
