@@ -1,6 +1,6 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "OliveVision"
+excerpt: "OliveVision is a machine vision system for the automatic quality assessment of olive shipments at a processing plant. Operating in real time on the stream of images from a conveyor belt, the system detects, counts, and classifies the olives present in each frame without human intervention <br/><img src='/images/500x300.png'>"
 collection: portfolio
 ---
 
