@@ -73,7 +73,7 @@ After applying the same preprocessing to the inference script in Unibotics (so t
 
 <div style="text-align:center">
   <iframe width="700" height="394"
-  src=“https://www.youtube.com/embed/2dQDfQh3CVI”
+  src="https://www.youtube.com/embed/2dQDfQh3CVI"
   frameborder="0" allowfullscreen>
   </iframe>
 </div>
