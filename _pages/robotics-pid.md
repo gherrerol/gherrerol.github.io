@@ -65,9 +65,9 @@ Since the car was traveling at a constant speed, abrupt changes in track section
 
 With a single global center of mass, the robot didn’t have enough information to anticipate what was ahead; it only reacted once the turn was already directly beneath the car, causing delayed decelerations and abrupt corrections. To be able to anticipate, I divided the image into three horizontal bands to analyze the track at different distances:
 
-<div style="text-align:center">
-  <img src="images/robotics/franjas.jpeg" width="700" alt="Descripción">
-</div>
+
+![Franjas](/images/robotics/franjas.png)
+
 
 <table style="width:100%; border-collapse:collapse; font-family:monospace; font-size:0.9em;">
   <tr style="background:
@@ -169,10 +169,9 @@ At first, I wasn't going to test this circuit because I seem to recall that we w
 These two have definitely given me the most headaches. For starters, the Montreal Circuit won’t even load for me—I had to test the Classic track directly (though there shouldn’t be any difference between them). On both circuits, as soon as the race starts, the car skids and crashes into the wall. I’ve tried adjusting the Kp, the Kd, the speed ranges, and setting a constant low speed—nothing seems to work. Not only that, but it doesn’t even seem to detect the racing line, which is strange because it works just like it does on all the other circuits. I haven’t managed to find a solution yet, but I’ve been checking out my fellow players’ blogs and see that they’ve had similar issues with these tracks, so I’m not quite sure if it’s just my problem or what might be going wrong. Also, as a little curious side note, I’ve tested the track on two different computers and… the track line is a different color! Could it be something to do with my settings on one of my machines?
 
 
-<div style="display:flex; gap:10px; justify-content:center">
-  <img src="images/robotics/torre.jpeg" width="340" alt="Imagen 1">
-  <img src="images/robotics/portatil.jpeg" width="340" alt="Imagen 2">
-</div>
+![Img1](/images/robotics/torre.jpeg)
+![Img2](/images/robotics/portatil.jpeg)
+
 
 
 ## 5. Conclusions
