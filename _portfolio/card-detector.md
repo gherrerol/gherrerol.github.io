@@ -46,7 +46,7 @@ A variation of the previous idea, but instead of correlating grayscale images, t
 2. Extract the ROI (crop and split).
 3. Compare it with every template using the **SAD** (Sum of Absolute Differences). The template with the smallest difference is the prediction.
 
-![Binarized subtraction pipeline](/images/card_detection/subtraction.png)
+![Binarized subtraction pipeline](/images/card_detection/substraction.png)
 
 
 ## 4. SIFT + RANSAC
