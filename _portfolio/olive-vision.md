@@ -1,5 +1,5 @@
 ---
-title: "OliveVision"
+title: "OliveVision:  Olive Detection, Counting and Ripeness Classification"
 excerpt: "System for the automatic quality assessment of olive shipments at a processing plant <br/><img src='/images/olives.png'>"
 collection: portfolio
 ---
